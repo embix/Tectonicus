@@ -1212,6 +1212,9 @@ public class TileRenderer
 				writer.write(outLine + "\n");
 			}
 			
+			scanner.close();
+			scanner = null;
+			
 			writer.flush();
 			out.close();
 		}
@@ -1254,12 +1257,14 @@ public class TileRenderer
 					writer.write(line);
 					writer.write('\n');
 				}
-				
-				writer.flush();
-				
+						
 				in.close();
 				in = null;
 			}
+			
+			writer.flush();
+			writer.close();
+			writer = null;
 		}
 		catch (Exception e)
 		{
